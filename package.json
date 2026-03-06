@@ -1,6 +1,6 @@
 {
   "name": "react-native-devtools-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for debugging React Native apps — screenshots, UI hierarchy, interactions, JS console, and more",
   "author": "Priya Narayanaswamy <priyan85@gmail.com>",
   "repository": {
