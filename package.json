@@ -1,0 +1,73 @@
+{
+  "name": "react-native-devtools-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for debugging React Native apps — screenshots, UI hierarchy, interactions, JS console, and more",
+  "author": "Priya Narayanaswamy <priyan85@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pnarayanaswamy/react-native-devtools-mcp.git"
+  },
+  "homepage": "https://github.com/pnarayanaswamy/react-native-devtools-mcp",
+  "bugs": {
+    "url": "https://github.com/pnarayanaswamy/react-native-devtools-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "react-native",
+    "debugging",
+    "devtools",
+    "simulator",
+    "emulator",
+    "ios",
+    "android",
+    "metro",
+    "ai-agent",
+    "model-context-protocol"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "type": "module",
+  "main": "dist/server.js",
+  "types": "dist/server.d.ts",
+  "bin": {
+    "react-native-devtools-mcp": "dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/server.js",
+      "types": "./dist/server.d.ts"
+    },
+    "./platform": {
+      "import": "./dist/platform.js",
+      "types": "./dist/platform.d.ts"
+    },
+    "./tools/*": {
+      "import": "./dist/tools/*.js",
+      "types": "./dist/tools/*.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1",
+    "ws": "^8.19.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "license": "MIT"
+}
