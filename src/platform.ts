@@ -85,11 +85,11 @@ export async function getBootedDevice(
     return cachedDevice;
   }
 
-  const envPlatform = process.env["DETOX_MCP_PLATFORM"] as
+  const envPlatform = process.env["RN_DEVTOOLS_PLATFORM"] as
     | "ios"
     | "android"
     | undefined;
-  const envDeviceId = process.env["DETOX_MCP_DEVICE_ID"];
+  const envDeviceId = process.env["RN_DEVTOOLS_DEVICE_ID"];
 
   if (envPlatform && envDeviceId) {
     cachedDevice = {
@@ -111,7 +111,7 @@ export async function getBootedDeviceOrThrow(): Promise<DeviceInfo> {
       "No booted simulator or emulator found.\n" +
         '  iOS: xcrun simctl boot "iPhone 15 Pro"\n' +
         "  Android: emulator -avd <avd_name>\n" +
-        "  Or set DETOX_MCP_PLATFORM and DETOX_MCP_DEVICE_ID env vars.",
+        "  Or set RN_DEVTOOLS_PLATFORM and RN_DEVTOOLS_DEVICE_ID env vars.",
     );
   }
   return device;

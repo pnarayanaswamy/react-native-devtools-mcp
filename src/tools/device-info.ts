@@ -14,7 +14,7 @@ export function registerDeviceInfoTool(server: McpServer) {
         : "No booted simulator or emulator detected.\n\n" +
           '  iOS: xcrun simctl boot "iPhone 15 Pro"\n' +
           "  Android: emulator -avd <avd_name>\n" +
-          "  Or set DETOX_MCP_PLATFORM and DETOX_MCP_DEVICE_ID env vars.";
+          "  Or set RN_DEVTOOLS_PLATFORM and RN_DEVTOOLS_DEVICE_ID env vars.";
 
       return {
         content: [{ type: "text" as const, text }],

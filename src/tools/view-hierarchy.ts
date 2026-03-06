@@ -16,7 +16,7 @@ type IdbElement = {
 };
 
 function resolveIdbPath(): string {
-  const envPath = process.env["DETOX_MCP_IDB_PATH"];
+  const envPath = process.env["RN_DEVTOOLS_IDB_PATH"];
   if (envPath) return envPath;
 
   const candidates = [

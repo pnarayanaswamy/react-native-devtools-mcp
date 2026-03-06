@@ -1,8 +1,11 @@
 import http from "node:http";
 import WebSocket from "ws";
 
-const METRO_PORT = parseInt(process.env["DETOX_MCP_METRO_PORT"] ?? "8081", 10);
-const METRO_HOST = process.env["DETOX_MCP_METRO_HOST"] ?? "127.0.0.1";
+const METRO_PORT = parseInt(
+  process.env["RN_DEVTOOLS_METRO_PORT"] ?? "8081",
+  10,
+);
+const METRO_HOST = process.env["RN_DEVTOOLS_METRO_HOST"] ?? "127.0.0.1";
 const CDP_TIMEOUT_MS = 5_000;
 
 type CdpTarget = {

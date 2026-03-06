@@ -112,13 +112,13 @@ claude mcp add react-native node /absolute/path/to/react-native-devtools-mcp/dis
 
 All optional. The server auto-detects everything.
 
-| Variable               | Description                                 | Default       |
-| ---------------------- | ------------------------------------------- | ------------- |
-| `DETOX_MCP_PLATFORM`   | Force platform: `ios` or `android`          | auto-detect   |
-| `DETOX_MCP_DEVICE_ID`  | Force device UDID (iOS) or serial (Android) | auto-detect   |
-| `DETOX_MCP_IDB_PATH`   | Path to `idb` binary for iOS view hierarchy | auto-discover |
-| `DETOX_MCP_METRO_PORT` | Metro bundler port                          | `8081`        |
-| `DETOX_MCP_METRO_HOST` | Metro bundler host                          | `127.0.0.1`   |
+| Variable                 | Description                                 | Default       |
+| ------------------------ | ------------------------------------------- | ------------- |
+| `RN_DEVTOOLS_PLATFORM`   | Force platform: `ios` or `android`          | auto-detect   |
+| `RN_DEVTOOLS_DEVICE_ID`  | Force device UDID (iOS) or serial (Android) | auto-detect   |
+| `RN_DEVTOOLS_IDB_PATH`   | Path to `idb` binary for iOS view hierarchy | auto-discover |
+| `RN_DEVTOOLS_METRO_PORT` | Metro bundler port                          | `8081`        |
+| `RN_DEVTOOLS_METRO_HOST` | Metro bundler host                          | `127.0.0.1`   |
 
 ## Use as Library
 
@@ -164,7 +164,7 @@ No app code changes required. The server connects to existing debug interfaces:
 ## Troubleshooting
 
 **"No booted simulator or emulator detected"**
-Boot a simulator (`xcrun simctl boot "iPhone 15 Pro"`) or emulator (`emulator -avd <name>`), or set `DETOX_MCP_PLATFORM` and `DETOX_MCP_DEVICE_ID` env vars.
+Boot a simulator (`xcrun simctl boot "iPhone 15 Pro"`) or emulator (`emulator -avd <name>`), or set `RN_DEVTOOLS_PLATFORM` and `RN_DEVTOOLS_DEVICE_ID` env vars.
 
 **View hierarchy empty on iOS**
 iOS view hierarchy requires Facebook IDB. Install it:
@@ -174,10 +174,10 @@ brew tap facebook/fb && brew install idb-companion
 pip3 install fb-idb
 ```
 
-Verify with: `idb ui describe-all --udid <simulator-udid>`. If `idb` is not on PATH, set `DETOX_MCP_IDB_PATH=/path/to/idb`.
+Verify with: `idb ui describe-all --udid <simulator-udid>`. If `idb` is not on PATH, set `RN_DEVTOOLS_IDB_PATH=/path/to/idb`.
 
 **IDB not found**
-The server searches common locations automatically. If it still can't find IDB, set `DETOX_MCP_IDB_PATH` to the absolute path of the `idb` binary (e.g., `~/Library/Python/3.9/bin/idb`).
+The server searches common locations automatically. If it still can't find IDB, set `RN_DEVTOOLS_IDB_PATH` to the absolute path of the `idb` binary (e.g., `~/Library/Python/3.9/bin/idb`).
 
 **Screenshot fails on Android**
 Ensure `adb` is on PATH and the emulator is fully booted past the lock screen.
@@ -189,7 +189,7 @@ Ensure Metro bundler is running and accessible. Test with:
 curl http://localhost:8081/json
 ```
 
-If Metro runs on a different port, set `DETOX_MCP_METRO_PORT`.
+If Metro runs on a different port, set `RN_DEVTOOLS_METRO_PORT`.
 
 **JS eval returns "No React Native runtime found"**
 The app must be running and connected to Metro. Check `get_metro_status` to see connected runtimes.
